@@ -255,6 +255,10 @@
 
             $quieninserto1="INSERT INTO quieninserto(num_carga,quienfue) VALUES ('$num_carga','1')";
             mysqli_query($link,$quieninserto1);
+
+            $embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,hor_inicio_carga,hor_termino_carga,hor_salida) VALUES ('$num_carga','','','00:00','00:00','00:00','00:00','00:00')";
+            mysqli_query($link,$embarques);
+
         }
         else /* ES REPETIDO */
         {

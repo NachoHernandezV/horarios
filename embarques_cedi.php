@@ -212,7 +212,7 @@
 
            if($QuienInserto == 'Bascula') /*inserto cedi o EMBARQUES */
            {
-                $embarques="UPDATE embarques SET num_carga='".$num_carga."',fecha='".$fecha."',fecha_insertado='".$fechaactual."',hor_programa='".$h_programa."',hor_embarques='".$h_llegada_emb."',hor_inicio_carga='".$inicio_carga."',hor_termino_carga='".$termino_carga."',hor_salida='".$h_salida."'";
+                $embarques="UPDATE embarques SET num_carga='".$num_carga."',fecha='".$fecha."',fecha_insertado='".$fechaactual."',hor_programa='".$h_programa."',hor_embarques='".$h_llegada_emb."',hor_inicio_carga='".$inicio_carga."',hor_termino_carga='".$termino_carga."',hor_salida='".$h_salida."' "."WHERE num_carga='".$num_carga."'";
                 /*$embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,   hor_inicio_carga,     hor_termino_carga,hor_salida) 
                 VALUES ('$num_carga','$fecha','$fechaactual','$h_programa','$h_llegada_emb','$inicio_carga','$termino_carga','$h_salida')";*/
                 mysqli_query($link,$embarques);

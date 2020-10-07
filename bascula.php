@@ -256,6 +256,7 @@
             $quieninserto1="INSERT INTO quieninserto(num_carga,quienfue) VALUES ('$num_carga','1')";
             mysqli_query($link,$quieninserto1);
 
+            //PARA EMBARQUES
             $embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,hor_inicio_carga,hor_termino_carga,hor_salida) VALUES ('$num_carga','','','00:00','00:00','00:00','00:00','00:00')";
             mysqli_query($link,$embarques);
 
@@ -271,16 +272,19 @@
                 $resultad=mysqli_query($link,$sql);
 
                 /*insertar en la tabla de primer pesaje */
-                $primerpesaje="INSERT INTO primer_pesaje (num_carga,primer_peso1,segundo_peso1) VALUES ('$num_carga','$primerpesaje1','$segundopesaje1')";
+                $primerpesaje="UPDATE primer_pesaje SET primer_peso1='".$primerpesaje1."',segundo_peso1='",$segundopesaje1."'"." WHERE num_carga='".$num_carga."'";
+                //$primerpesaje="INSERT INTO primer_pesaje (num_carga,primer_peso1,segundo_peso1) VALUES ('$num_carga','$primerpesaje1','$segundopesaje1')";
                 mysqli_query($link,$primerpesaje);
             
                 /*insertar en la tabla de segundo pesaje */
-                $segundopesaje="INSERT INTO segundo_pesaje (num_carga,primer_peso2,segundo_peso2) VALUES ('$num_carga','$primerpesaje2','$segundopesaje2')";
+                $segundopesaje="UPDATE segundo_pesaje SET primer_peso2='".$primerpesaje2."',segundo_peso2='",$segundopesaje2."'"." WHERE num_carga='".$num_carga."'";
+                /*$segundopesaje="INSERT INTO segundo_pesaje (num_carga,primer_peso2,segundo_peso2) VALUES ('$num_carga','$primerpesaje2','$segundopesaje2')";*/
                 mysqli_query($link,$segundopesaje);
                 
                 /*insertar en la tabla de chofer */
-                $datoschofer="INSERT INTO datos_chofer (num_carga,nombre,placas,producto,peso1,fechasalida) VALUES ('$num_carga','$chofer','$placas','$producto','$peso1','$fechasalida')";
-                mysqli_query($link,$datoschofer);
+                $sql="UPDATE datos_chofer SET nombre='".$chofer."',placas='".$placas."',producto='".$producto."',peso1='".$peso1."',fechasalida='".$fechasalida."'"." WHERE num_carga='".$num_carga."'";
+                //$datoschofer="UPDATE datos_chofer SET (num_carga,nombre,placas,producto,peso1,fechasalida) VALUES ('$num_carga','$chofer','$placas','$producto','$peso1','$fechasalida')";
+                mysqli_query($link,$datoschofer);o
 
                 $sql2="UPDATE quieninserto SET quienfue='0' WHERE num_carga='".$num_carga."'";
                 $resultad=mysqli_query($link,$sql2);

@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+* {
+  box-sizing: border-box;
+}
+.espacio{
+	margin: 7px 0px 0px 0px;
+}
+.colorencabezado{
+	color: #FBE76B;
+
+	background:rgba(87,86,84,0.9);/*#7CB894*/
+	padding: 0px;
+	margin: 5px 0px 0px 0px;
+    justify-content: end;
+}
+.colordatos{
+	color: white;
+	background:rgba(110,110,110,0.9);/*#7CB894*/
+	padding: 0px;
+	margin: 5px 0px 0px 0px;
+    justify-content: end;
+}
+/*PARA LAS FECHAS*/
+.mifecha2
+ {
+ background-color:#ff7800; padding:2px; width:100px; text-align:center; font-family:verdana, arial; font-size:10pt; border-radius:5px;
+ }
+.mifecha2 .ano
+{
+  background-color:#707070; color:#ffe3c1; padding:2px; font-size:90%; margin-bottom:3px; letter-spacing:2px; font-weight:bold;
+}
+.mifecha2 .dia
+{
+background-color:#4ba3d8; color:#1957c0; font-size:140%; padding:2px 8px 5px; margin-bottom:3px; font-weight:bold; text-shadow:1px 1px 1px #000;
+}
+.mifecha2 .mes
+{
+background-color:#707070; color:#ffe3c1; font-size:80%; padding:2px; font-weight:bold;
+}

@@ -182,8 +182,21 @@
         {
         
             /*insertar en la tabla de CARGA */
-            $insertarencarga="INSERT INTO carga (num_carga,num_boleta,fecha,h_entrada_vig,h_solicitud_v) VALUES ('$num_carga','0','$fechaactual','00:00','00:00')";
+            $insertarencarga="INSERT INTO carga (num_carga,num_boleta,fecha,h_entrada_vig,h_solicitud_v) VALUES ('$num_carga','0','00:00','00:00','00:00')";
             mysqli_query($link,$insertarencarga);
+
+            /*insertar en la tabla de primer pesaje */
+            $primerpesaje="INSERT INTO primer_pesaje (num_carga,primer_peso1,segundo_peso1) VALUES ('$num_carga','','')";
+            mysqli_query($link,$primerpesaje);
+            
+            /*insertar en la tabla de segundo pesaje */
+            $segundopesaje="INSERT INTO segundo_pesaje (num_carga,primer_peso2,segundo_peso2) VALUES ('$num_carga','','')";
+            mysqli_query($link,$segundopesaje);
+                
+            /*insertar en la tabla de chofer */
+            $datoschofer="INSERT INTO datos_chofer (num_carga,nombre,placas,producto,peso1,fechasalida) VALUES ('$num_carga','','','','','')";
+            mysqli_query($link,$datoschofer);
+
 
             /*insertar en la tabla de embarques */
             $embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,hor_inicio_carga,hor_termino_carga,hor_salida) VALUES ('$num_carga','$fecha','$fechaactual','$h_programa','$h_llegada_emb','$inicio_carga','$termino_carga','$h_salida')";
@@ -199,8 +212,9 @@
 
            if($QuienInserto == 'Bascula') /*inserto cedi o EMBARQUES */
            {
-
-                $embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,hor_inicio_carga,hor_termino_carga,hor_salida) VALUES ('$num_carga','$fecha','$fechaactual','$h_programa','$h_llegada_emb','$inicio_carga','$termino_carga','$h_salida')";
+                $embarques="UPDATE embarques SET num_carga='".$num_carga."',fecha='".$fecha."',fecha_insertado='".$fechaactual."',hor_programa='".$h_programa."',hor_embarques='".$h_llegada_emb."',hor_inicio_carga='".$inicio_carga."',hor_termino_carga='".$termino_carga."',hor_salida='".$h_salida."'";
+                /*$embarques="INSERT INTO embarques (num_carga,fecha,fecha_insertado,hor_programa,hor_embarques,   hor_inicio_carga,     hor_termino_carga,hor_salida) 
+                VALUES ('$num_carga','$fecha','$fechaactual','$h_programa','$h_llegada_emb','$inicio_carga','$termino_carga','$h_salida')";*/
                 mysqli_query($link,$embarques);
 
                 $sql2="UPDATE quieninserto SET quienfue='0' WHERE num_carga='".$num_carga."'";

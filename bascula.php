@@ -269,7 +269,7 @@
            if($QuienInserto == 'CedioEmb') /*inserto cedi o EMBARQUES */
            {
                
-                $sql="UPDATE carga SET h_entrada_vig='".$h_entrada_vig."',h_solicitud_v='".$h_solicitud_v."', num_boleta='".$num_boleta."' WHERE num_carga='".$num_carga."'";
+                $sql="UPDATE carga SET fecha='".$fechaactual."', h_entrada_vig='".$h_entrada_vig."',h_solicitud_v='".$h_solicitud_v."', num_boleta='".$num_boleta."' WHERE num_carga='".$num_carga."'";
                 $resultad=mysqli_query($link,$sql);
 
                 /*insertar en la tabla de primer pesaje */
